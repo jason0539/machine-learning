@@ -16,7 +16,13 @@ figure; % open a new figure window
 %       appear as red crosses. Furthermore, you can make the
 %       markers larger by using plot(..., 'rx', 'MarkerSize', 10);
 
+%plot(x, y)默认通过连线绘制数据
+%rx指定使用红色叉号(red “x”)绘制数据，后面的MarkerSize指定叉号尺寸为10
 
+plot(x, y, 'rx', 'MarkerSize', 10); % Plot the data
+
+ylabel('Profit in $10,000s'); % Set the y−axis label
+ylabel('Profit in $10,000s'); % Set the y−axis label
 
 
 
