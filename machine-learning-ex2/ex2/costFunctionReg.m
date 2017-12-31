@@ -17,6 +17,22 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
+% calculate cost function
+htheta = sigmoid(X * theta);
+			
+unreg_cost = ((-y)'*log(htheta) - (1-y')*log(1-htheta))/m;
+
+% We want the regularization to exclude the bias feature, so we can set theta(1) to zero
+% or change the whole vector theta1 = [0 ; theta(2:size(theta), :)];
+theta(1) = 0;
+
+reg_cost = (1/2*lambda/m)*(sum(theta .^ 2));
+
+%y'是y的转置矩阵
+J = unreg_cost + reg_cost;
+
+grad = (X'*(htheta - y))/m + theta * lambda/m; 
+
 
 
 
