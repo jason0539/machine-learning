@@ -20,8 +20,14 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+htheta = sigmoid(X * theta);
 
+%y'是y的转置矩阵
+J = (-1/m) * (y' * log(htheta) + (1 - y') * log(1 - htheta));
+%或者
+%J = 1/m * sum(-y .* log(htheta) - (1 - y) .* log(1 - htheta));
 
+grad = (X'*(htheta - y))/m; 
 
 
 
